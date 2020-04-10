@@ -1,5 +1,9 @@
 package com.yuankai.day;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @author yuankai
  * @since 2020-04-10
@@ -18,5 +22,25 @@ public class Day9 {
             n = n ^ nums[i];
         }
         return n;
+    }
+
+    /**
+     * 反转字符串里的单词
+     * https://leetcode-cn.com/problems/reverse-words-in-a-string/
+     */
+    public String reverseWords(String s) {
+        String[] ss = s.trim().split(" ");
+        StringBuilder sb = new StringBuilder();
+        for(int i = ss.length - 1; i >= 0; i--) {
+            if (ss[i].equals(" ") || ss[i].equals("")) {
+                continue;
+            }
+            sb.append(ss[i]);
+            if (i == 0) {
+                return sb.toString();
+            }
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 }
