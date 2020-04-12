@@ -23,4 +23,32 @@ public class Day10 {
         node.right = sortedArrayToBST(nums, min+1, end);
         return node;
     }
+
+    /**
+     * https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/
+     * 二叉树深度
+     */
+    public int maxDepth(TreeNode root) {
+        if (root == null){
+            return 0;
+        }
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left, right) + 1;
+    }
+
+    /**
+     * https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
+     * 二叉树的镜像
+     */
+    public TreeNode mirrorTree(TreeNode root) {
+        if(root == null) {
+            return null;
+        }
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = mirrorTree(right);
+        root.right = mirrorTree(left);
+        return root;
+    }
 }
