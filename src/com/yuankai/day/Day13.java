@@ -27,5 +27,4 @@ public class Day13 {
             return pathSum2(root.left, sum - root.val) + pathSum2(root.right, sum - root.val);
         }
     }
-    
 }
